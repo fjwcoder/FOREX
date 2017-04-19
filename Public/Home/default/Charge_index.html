@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <title>{$seo.title}</title>
+
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/layout.css" type="text/css"/>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="__PUBLIC__/js/layout.js"></script>-->
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-body charge_index">
+            <div class="charge-info-div w300">
+                <div class="charge-top wp_100 t_c">
+                    <a class="charge-back" href="/Home/Acharge.html">点击返回</a><br>
+                    {$seo.way}
+                </div>
+                
+                <div class="qr_code-img-div wp_100 t_c">
+                    <img class="qr_code-img hp_100 w200" src="{$seo.qr_code}"/>
+                </div>
+                <div class="qr_code-info wp_100 t_c">
+                    DM金融充值
+                    <br>
+                    充值金额：{$seo.money} 元
+                    <br><br>
+                    账户：{$seo.nickname}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<extend name="Public:base"/>
+<block name="content">
+	<div class="content-panel-div hp_100 wp_100">
+		<!--币种选择-->
+		<div class="category-select swiper-container wp_20 hp_65 f_l o_h">
+			<div class="swiper-wrapper wp_100 f_l">
+				<foreach name="kind" item="v">
+					<div class="swiper-slide category-select-item wp_95 f_l" id="{$v.id}" value="{$v.id}" name="{$v.name}">
+						<div class="wp_40 hp_100 f_l category-name">{$v.remark} </div>
+						<div id="category-number-open-{$v.id}" class="wp_30 hp_100 f_l category-number category-number-open t_c">{$v.open}</div>
+						<div id="category-number-current-{$v.id}" class="wp_30 hp_100 f_l category-number category-number-current t_c">{$v.open}</div>
+					</div>
+				</foreach>
+			</div>
+		</div>
+		<!--时间选择-->
+		<div class="time-select-bar wp_80 h30 f_l">
+			<foreach name="time" item="v">
+				<div class="time-select-button hp_100 w80 f_l t_c" value="{$v.minutes}" name="{$v.name}">
+					{$v.name}
+				</div>
+			</foreach>
+		</div>
+		<!--动态K线图-->
+		<div id="k-line-graph" class="k-line-graph wp_80 f_l"></div>
+		
+		<!--实时数据变动-->
+		<div class="dynamic-graph-panel w450 h350">
+			<div class="h30 wp_85 f_l" style="line-height: 30px; color: white;padding-left: 5px;">
+				DM-FX Micro-Trade
+			</div>
+			<div class="dynamic-panel-close h30 wp_15 f_l t_c">关闭</div>
+			<div class="div-operate-panel f_l">
+				<div class="wp_50 hp_80 f_l operate-select-panel">
+					<label for="goods-type">商品品种：</label><input id="goods-type" type="text" class="operate-select" value="USD-EUR" readonly/><br>
+					<label for="trade-type">交易类型：</label><input id="trade-type" type="text" class="operate-select" value="及时开盘，固定间隔" readonly/><br>
+					<label for="time-select">结算时限：</label><select id="time-select" class="operate-time-select operate-select" name="operate-time"></select><br>
+					<label for="money-select">交易金额：</label><select id="money-select" class="operate-money-select operate-select" name="operate-money"></select>
+				</div>
+				<div class="wp_25 hp_80 f_l forex-contral-forex">
+					<div class="forex-contral-up w90 contral-button t_c" value="1">买涨</div>
+					<div class="forex-contral-down w90 contral-button t_c" value="2">买跌</div>
+				</div>
+				<div class="wp_25 hp_80 f_l win-money-div">
+					<div class="win-font win-div wp_100 f_l t_c">盈利</div>
+					<div class="win-money win-div wp_100 f_l t_c"></div>
+					<div class="win-info win-div wp_100 f_l t_c">EUR</div>
+				</div>
+				<div class="info-display wp_100 h20 t_c f_l">注意：市场交易模式下，实际成交价格可能会和请求价格有一定差异</div>
+				<div class="current-table-head f_l wp_100 h20">
+					<div class="table-head-info f_l">#</div>
+					<div class="table-head-info f_l">币种</div>
+					<div class="table-head-info f_l">方向</div>
+					<div class="table-head-info f_l">买价</div>
+					<div class="table-head-info f_l">价格</div>
+					<div class="table-head-info f_l">盈利$</div>
+					<div class="table-head-info f_l">进度</div>
+				</div>
+			</div>
+
+			<div class="div-current-record f_l">
+				<table id="table-trade-record" class="table-trade-record wp_100"></table>
+			</div>
+		</div>
+
+		<!--交易记录-->
+		<div class="deal-record-div wp_100 f_l">
+			<div class="deal-record-head h30 f_l">
+				<div class="deal-head-div f_l">ORDER_NO</div>
+				<div class="deal-head-div f_l">TRADER</div>
+				<div class="deal-head-div f_l">TYPE</div>
+				<div class="deal-head-div f_l">TIME</div>
+				<div class="deal-head-div f_l">MONEY</div>
+				<div class="deal-head-div f_l">OPEN</div>
+				<div class="deal-head-div f_l">CLOSE</div>
+				<div class="deal-head-div f_l">RESULT</div>
+			</div>
+			<table id="current-record-table" class="current-record table-trade-record current-record-table"></table>
+			
+		</div>
+
+	</div>
+	<script src="http://cdn.bootcss.com/socket.io/1.7.3/socket.io.js"></script>
+	<script src="__PUBLIC__/js/k-line.js"></script>
+	<!--<script>
+		
+	</script>-->
+	
+</block>

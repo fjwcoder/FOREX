@@ -1,0 +1,128 @@
+array (
+  0 => 
+  array (
+    'id' => '1',
+    'name' => 'dols',
+    'title' => '美元',
+  ),
+  1 => 
+  array (
+    'id' => '2',
+    'name' => 'euro',
+    'title' => '欧元',
+  ),
+  2 => 
+  array (
+    'id' => '3',
+    'name' => 'hkdollor',
+    'title' => '港币',
+  ),
+  3 => 
+  array (
+    'id' => '4',
+    'name' => 'yen',
+    'title' => '日元',
+  ),
+  4 => 
+  array (
+    'id' => '5',
+    'name' => 'pound',
+    'title' => '英镑',
+  ),
+  5 => 
+  array (
+    'id' => '6',
+    'name' => 'aud',
+    'title' => '澳大利亚元',
+  ),
+  6 => 
+  array (
+    'id' => '7',
+    'name' => 'cdollor',
+    'title' => '加拿大元',
+  ),
+  7 => 
+  array (
+    'id' => '8',
+    'name' => 'thb',
+    'title' => '泰国铢',
+  ),
+  8 => 
+  array (
+    'id' => '9',
+    'name' => 'sgd',
+    'title' => '新加坡元',
+  ),
+  9 => 
+  array (
+    'id' => '10',
+    'name' => 'dkk',
+    'title' => '丹麦克朗',
+  ),
+  10 => 
+  array (
+    'id' => '11',
+    'name' => 'nkrona',
+    'title' => '挪威克朗',
+  ),
+  11 => 
+  array (
+    'id' => '12',
+    'name' => 'skrona',
+    'title' => '瑞典克朗',
+  ),
+  12 => 
+  array (
+    'id' => '13',
+    'name' => 'sf',
+    'title' => '瑞士法郎',
+  ),
+  13 => 
+  array (
+    'id' => '14',
+    'name' => 'ntc',
+    'title' => '新台币',
+  ),
+  14 => 
+  array (
+    'id' => '15',
+    'name' => 'sar',
+    'title' => '南非兰特',
+  ),
+  15 => 
+  array (
+    'id' => '16',
+    'name' => 'rouble',
+    'title' => '卢布',
+  ),
+  16 => 
+  array (
+    'id' => '17',
+    'name' => 'php',
+    'title' => '菲律宾比索',
+  ),
+  17 => 
+  array (
+    'id' => '18',
+    'name' => 'Ringgit',
+    'title' => '林吉特',
+  ),
+  18 => 
+  array (
+    'id' => '19',
+    'name' => 'pataca',
+    'title' => '澳门元',
+  ),
+  19 => 
+  array (
+    'id' => '20',
+    'name' => 'won',
+    'title' => '韩国元',
+  ),
+  20 => 
+  array (
+    'id' => '21',
+    'name' => 'nzd',
+    'title' => '新西兰元',
+  ),
+)

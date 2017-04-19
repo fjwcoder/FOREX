@@ -1,0 +1,78 @@
+<extend name="Public:base"/>
+<block name="content">
+	<div class="content-panel-div hp_100 wp_100">
+		<div class="category-select swiper-container hp_100 wp_20 f_l o_h">
+			<div class="swiper-wrapper wp_100">
+				<script language="php">
+					$html = '';
+					foreach($operate as $v){
+						$html .= "<details class='swiper-slide operate-item-0 wp_100' name='".$v['name']."' open> <summary>".$v['title']."</summary>";
+							if(!empty($v['content'])){
+								foreach($v['content'] as $o){
+									$html .= "<li><a href='/Home/".$o['link']."' name='".$o['name']."'>".$o['title']."</a></li>";
+								}
+							}
+						$html .= "</details>";
+					}
+					echo $html;
+				</script>
+			</div>
+		</div>
+		<div id="user-center" class="user-center user-content-div wp_80 hp_100 f_l">
+			<div id="about-me" class="about-me wp_80 user-center-item hp_50">
+				<form id="position-get" class="position-form" action="{:U('Acharge/chargeGate')}" method="POST">
+					<table class="tables user-base-table">
+						<caption>{$seo.name}</caption>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">账号：</th>
+							<th class="table-horizen table-horizen-1 font-272727">
+								{$user.userid}
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">金额：</th>
+							<th class="table-horizen table-horizen-1">
+								<input class="money-charge" name="money" placeholder="金额不能为空（$）" />
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">支付方式：</th>
+							<th class="table-horizen table-horizen-1">
+								<select class="charge-way-select" name="way">
+									<option value="0">微信支付</option>
+									<option value="1">支付宝支付</option>
+
+								</select>
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">当前汇率：</th>
+							<th class="table-horizen table-horizen-1 font-272727">
+								{$charge.forex}
+							</th>
+						</tr>
+					</table>
+					<div class="charge-caution t_c">
+						注意事项：充值后，请刷新页面查看余额，如果未到账，请联系客服。<br>
+						1.当前最小入金金额【500】$; 2.当前最大入金金额【1000】$; 请仔细填写以上信息并核对！
+					</div>
+
+					<button type="submit" class="button-submit">{$seo.name}</button>
+				</form>
+
+
+			</div>
+
+			<!--<div id="popularize-link" class="popularize-link wp_80 user-center-item hp_20">
+
+
+			</div>
+
+			<div id="announce-news" class="announce-news wp_80 user-center-item hp_30">
+
+
+			</div>-->
+		
+		</div>
+	</div>
+</block>

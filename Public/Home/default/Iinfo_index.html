@@ -1,0 +1,65 @@
+<extend name="Public:base"/>
+<block name="content">
+	<div class="content-panel-div hp_100 wp_100">
+		<div class="category-select swiper-container hp_100 wp_20 f_l o_h">
+			<div class="swiper-wrapper wp_100">
+				<script language="php">
+					$html = '';
+					foreach($operate as $v){
+						$html .= "<details class='swiper-slide operate-item-0 wp_100' name='".$v['name']."' open> <summary>".$v['title']."</summary>";
+							if(!empty($v['content'])){
+								foreach($v['content'] as $o){
+									$html .= "<li><a href='/Home/".$o['link']."' name='".$o['name']."'>".$o['title']."</a></li>";
+								}
+							}
+						$html .= "</details>";
+					}
+					echo $html;
+				</script>
+			</div>
+		</div>
+		<div id="user-center" class="user-center user-content-div wp_80 hp_100 f_l">
+			<div id="about-me" class="about-me wp_80 user-center-item hp_50">
+				<table class="tables user-base-table">
+						<caption>搜索伙伴</caption>
+						<tr>
+							<th class=" table-record-0 font-272727 t_c">登录ID:</th>
+							<th class=" table-record-1">
+								<input class="login-id" name="login_id"/>
+							</th>
+						</tr>
+						<tr>
+							<th class=" table-record-0 font-272727 t_c">姓名:</th>
+							<th class=" table-record-1">
+								<input class="my-name" name="my-name"/>
+							</th>
+						</tr>
+						<tr>
+							<th class=" table-record-0 font-272727 t_c">加入日期:</th>
+							<th class=" table-record-1">
+								<input class="join-date" name="join-date"/>
+							</th>
+						</tr>
+					</table>
+
+					<button type="submit" class="button-submit">搜索伙伴</button>
+			</div>
+
+			<!--记录表-->
+			<div class="record-panel">
+				<table class="record-table inferior-tree wp_100">
+					<thead>
+						<tr>
+							<th>姓名</th>
+							<th>账号</th>
+							<th>职位</th>
+							<th>注册时间</th>
+						</tr>
+					</thead>
+
+				</table>
+
+			</div>
+		</div>
+	</div>
+</block>

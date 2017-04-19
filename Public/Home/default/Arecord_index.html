@@ -1,0 +1,76 @@
+<extend name="Public:base"/>
+<block name="content">
+	<div class="content-panel-div hp_100 wp_100">
+		<div class="category-select swiper-container hp_100 wp_20 f_l o_h">
+			<div class="swiper-wrapper wp_100">
+				<script language="php">
+					$html = '';
+					foreach($operate as $v){
+						$html .= "<details class='swiper-slide operate-item-0 wp_100' name='".$v['name']."' open> <summary>".$v['title']."</summary>";
+							if(!empty($v['content'])){
+								foreach($v['content'] as $o){
+									$html .= "<li><a href='/Home/".$o['link']."' name='".$o['name']."'>".$o['title']."</a></li>";
+								}
+							}
+						$html .= "</details>";
+					}
+					echo $html;
+				</script>
+			</div>
+		</div>
+		<div id="user-center" class="user-center user-content-div wp_80 hp_100 f_l">
+			<div id="about-me" class="about-me wp_80 user-center-item hp_50">
+				<!--<form id="position-get" class="position-form" action="{:U('Acharge/charge')}" method="POST">-->
+					<table class="tables user-base-table">
+						<caption>{$seo.name}</caption>
+						<tr>
+							<th class=" table-record-0 font-272727 t_c">日期：</th>
+							<th class=" table-record-1">
+								<select id="record-select" class="record-select" name="record">
+									<option value="0">本月</option>
+									<option value="1">自选</option>
+								</select>
+							</th>
+							<th class=" table-record-2">
+								<input type="date" class="record-date" name="begin-date"/> <input class="record-date" type="date" name="end-date"/>
+							</th>
+						</tr>
+					</table>
+					<div class="charge-caution t_c">
+						注意事项：自定义查询时间只能查询12个月以内的数据
+					</div>
+
+					<button type="submit" class="button-submit">{$seo.name}</button>
+				<!--</form>-->
+			</div>
+			<!--记录表-->
+			<div class="record-panel">
+				<div class="record-table-div wp_100 hp_90">
+					<table class="record-table my-trade-record-table">
+						<thead>
+							<tr>
+								<th>OrderNo</th>
+								<th>ACCOUNT</th>
+								<th>SYMBOL</th>
+								<th>VOLUME</th>
+								<th>OpenTime</th>
+								<th>OpenPrice</th>
+								<th>CloseTime</th>
+								<th>ClosePrice</th>
+								<th>Profit</th>
+							</tr>
+						</thead>
+						<!--在这里写记录条数-->
+
+					</table>
+					
+				</div>
+				<div class="record-table-ctl wp_100 hp_10">
+
+				</div>
+
+			</div>
+		
+		</div>
+	</div>
+</block>

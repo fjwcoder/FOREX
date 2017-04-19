@@ -1,0 +1,74 @@
+<extend name="Public:base"/>
+<block name="content">
+	<div class="content-panel-div hp_100 wp_100">
+		<div class="category-select swiper-container hp_100 wp_20 f_l o_h">
+			<div class="swiper-wrapper wp_100">
+				<script language="php">
+					$html = '';
+					foreach($operate as $v){
+						$html .= "<details class='swiper-slide operate-item-0 wp_100' name='".$v['name']."' open> <summary>".$v['title']."</summary>";
+							if(!empty($v['content'])){
+								foreach($v['content'] as $o){
+									$html .= "<li><a href='/Home/".$o['link']."' name='".$o['name']."'>".$o['title']."</a></li>";
+								}
+							}
+						$html .= "</details>";
+					}
+					echo $html;
+				</script>
+			</div>
+		</div>
+		<div id="user-center" class="user-center user-content-div wp_80 hp_100 f_l">
+			<div id="about-me" class="about-me wp_80 user-center-item hp_50">
+				<table class="tables user-base-table">
+						<caption>{$seo.name}</caption>
+						<tr>
+							<th class=" wp_25 font-272727 t_c">级别:</th>
+							<th class=" wp_25">
+								<input class="inferior-level" name="inferior-level"/>
+							</th>
+							<th class=" wp_25 font-272727 t_c">客户:</th>
+							<th class=" wp_25">
+								<input class="inferior-userid" name="inferior-userid"/>
+							</th>
+						</tr>
+						<tr>
+							<th class=" wp_25 font-272727 t_c">日期：</th>
+							<th class=" wp_25">
+								<select id="record-select" class="record-select" name="record">
+									<option value="0">本月</option>
+									<option value="1">自选</option>
+								</select>
+							</th>
+							<th class=" wp_25">
+								<input type="date" class="record-date" name="begin-date"/>
+							</th>
+							<th class=" wp_25">
+								<input class="record-date" type="date" name="end-date"/>
+							</th>
+						</tr>
+					</table>
+
+					<button type="submit" class="button-submit">{$seo.name}</button>
+			</div>
+
+			<!--记录表-->
+			<div class="record-panel">
+				<table class="record-table inferior-tree wp_100">
+					<thead>
+						<tr>
+							<th>账号</th>
+							<th>姓名</th>
+							<th>结算时间</th>
+							<th>佣金总额</th>
+							<th>团队佣金</th>
+							<th>平级佣金</th>
+						</tr>
+					</thead>
+
+				</table>
+
+			</div>
+		</div>
+	</div>
+</block>

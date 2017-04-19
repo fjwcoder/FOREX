@@ -1,0 +1,53 @@
+<extend name="Public:base" />
+<block name="content">
+	<div class="row">
+		<div class="col-lg-12">
+			<h3 class="page-header"><em class="glyphicon glyphicon-cloud-upload"></em> 
+			<!-- 注册详情 -->
+			{$type}
+		    </h3>
+		</div>
+		
+	</div>
+
+
+	<div class="row">
+		<div class="col-lg-12">
+
+				<form method='post' class="form-horizontal" id="form_do" name="form_do" action="{:U('ctrl_edit')}">	
+					<div class="form-group">
+						<label for="inputControl" class="col-sm-2 control-label">宏观调控:</label>
+						<div class="col-sm-9">
+							<!-- <input type="text" name="userid" id="inputUserid" value="{$vo.value}" class="form-control" placeholder="0"/>	 -->
+							<select class="max-control" name="control" style="height: 30px; width: 100px;">
+								<option value="0">尚未调控</option>
+								<option value="1">正在调控</option>
+							</select>
+						</div>
+					</div>
+					<div class="row margin-botton-large">
+						<div class="col-sm-offset-2 col-sm-9">
+							<input type="hidden" name="id" value="{$vo.id}" />
+							<div class="btn-group">							
+								<button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-saved"></i>
+									保存
+								</button>
+								<button type="button" onclick="goUrl('{:U('index',array('group' => $group))}')" class="btn btn-default"> <i class="glyphicon glyphicon-chevron-left"></i>
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+				</form>
+	
+		</div>
+		<script>
+			var value = {$value};
+			$('.max-control').val(value);
+		</script>
+	</div>
+
+		
+
+
+</block>

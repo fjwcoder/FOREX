@@ -1,0 +1,84 @@
+<extend name="Public:base"/>
+<block name="content">
+	<div class="content-panel-div hp_100 wp_100">
+		<div class="category-select swiper-container hp_100 wp_20 f_l o_h">
+			<div class="swiper-wrapper wp_100">
+				<script language="php">
+					$html = '';
+					foreach($operate as $v){
+						$html .= "<details class='swiper-slide operate-item-0 wp_100' name='".$v['name']."' open> <summary>".$v['title']."</summary>";
+							if(!empty($v['content'])){
+								foreach($v['content'] as $o){
+									$html .= "<li><a href='/Home/".$o['link']."' name='".$o['name']."'>".$o['title']."</a></li>";
+								}
+							}
+						$html .= "</details>";
+					}
+					echo $html;
+				</script>
+			</div>
+		</div>
+		<div id="user-center" class="user-center user-content-div wp_80 hp_100 f_l">
+			<div id="about-me" class="about-me wp_80 user-center-item hp_50">
+				<table class="tables user-base-table">
+					<caption>基本资料</caption>
+					<tr class="table-row">
+						<th class="table-horizen font-272727">我的姓名：</th>
+						<th class="table-horizen font-272727">{$user.nickname}</th>
+					</tr>
+					<tr class="table-row">
+						<th class="table-horizen font-272727">我的账号</th>
+						<th class="table-horizen font-272727">{$user.userid}</th>
+					</tr>
+					<tr class="table-row">
+						<th class="table-horizen font-272727">账户余额：</th>
+						<th class="table-horizen font-272727">{$user.amount}</th>
+						<th class="table-horizen">
+							<a class="table-a" href="/Home/Icharge">更改</a>
+						</th>
+					</tr>
+					<tr class="table-row">
+						<th class="table-horizen font-272727">经纪人职位：</th>
+						<th class="table-horizen font-272727">{$user.position}</th>
+						<th class="table-horizen">
+							<a class="table-a" href="/Home/Aposition">更改</a>
+						</th>
+					</tr>
+					<tr class="table-row">
+						<th class="table-horizen font-272727">状态</th>
+						<th class="table-horizen font-272727">
+							<switch name="user['status']">
+								<case value="0">待审核</case>
+								<case value="1">已审核</case>
+								<default/>其他
+							</switch>
+						</th>
+					</tr>
+				</table>
+
+
+			</div>
+
+			<div id="popularize-link" class="popularize-link wp_80 user-center-item hp_20">
+				<table class="tables user-layout-table">
+					<caption>我的推广</caption>
+					<tr class="table-row">
+						<th class="table-horizen">推广链接：</th>
+						<th class="table-horizen">http://www.dm-fx.com</th>
+					</tr>
+
+				</table>
+
+			</div>
+
+			<div id="announce-news" class="announce-news wp_80 user-center-item hp_30">
+				<table class="tables user-layout-table">
+					<caption>公告通知</caption>
+
+				</table>
+
+			</div>
+		
+		</div>
+	</div>
+</block>

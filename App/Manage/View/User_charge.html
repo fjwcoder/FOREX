@@ -1,0 +1,46 @@
+<extend name="Public:base" />
+<block name="content">
+	<div class="row">
+		<div class="col-lg-12">
+			<h3 class="page-header"><em class="glyphicon glyphicon-cloud-upload"></em> 
+			用户详情
+		    </h3>
+		</div>
+		
+	</div>
+
+
+	<div class="row">
+		<div class="col-lg-12">
+
+				<form method='post' class="form-horizontal" id="form_do" name="form_do" action="{:U('charge')}">	
+					<div class="form-group">
+						<label for="inputCharge" class="col-sm-2 control-label">充值金额</label>
+						<div class="col-sm-9">
+							<input type="text" name="charge" id="inputCharge" value="{$vo.charge}" class="form-control" placeholder="{$vo.amount}" />	
+						</div>
+					</div>
+					
+
+					<div class="row margin-botton-large">
+						<div class="col-sm-offset-2 col-sm-9">
+							<input type="hidden" name="id" value="{$vo.id}" />
+							<div class="btn-group">							
+								<button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-saved"></i>
+									保存
+								</button>
+								<button type="button" onclick="goUrl('{:U('index',array('group' => $group))}')" class="btn btn-default"> <i class="glyphicon glyphicon-chevron-left"></i>
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+				</form>
+	
+		</div>
+	</div>
+
+		
+
+
+</block>

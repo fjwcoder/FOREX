@@ -1,0 +1,98 @@
+<extend name="Public:base"/>
+<block name="content">
+	<div class="content-panel-div hp_100 wp_100">
+		<div class="category-select swiper-container hp_100 wp_20 f_l o_h">
+			<div class="swiper-wrapper wp_100">
+				<script language="php">
+					$html = '';
+					foreach($operate as $v){
+						$html .= "<details class='swiper-slide operate-item-0 wp_100' name='".$v['name']."' open> <summary>".$v['title']."</summary>";
+							if(!empty($v['content'])){
+								foreach($v['content'] as $o){
+									$html .= "<li><a href='/Home/".$o['link']."' name='".$o['name']."'>".$o['title']."</a></li>";
+								}
+							}
+						$html .= "</details>";
+					}
+					echo $html;
+				</script>
+			</div>
+		</div>
+		<div id="user-center" class="user-center user-content-div wp_80 hp_100 f_l">
+			<div id="about-me" class="about-me wp_80 user-center-item hp_50">
+				<form id="position-get" class="position-form" action="{:U('Auncharge/uncharge')}" method="POST">
+					<table class="tables user-base-table">
+						<caption>{$seo.name}</caption>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">账号：</th>
+							<th class="table-horizen table-horizen-1 font-272727">{$uncharge.userid}
+								<!--<input class="readonly-input" value="{$uncharge.userid}" readonly/>-->
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">可出金额：</th>
+							<th class="table-horizen table-horizen-1 font-272727">{$uncharge.amount}
+								<!--<input class="money-charge" value="{$uncharge.amount}" readonly/>-->
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">出金金额：</th>
+							<th>
+								<input class="readonly-input float-number" name="money" placeholder="{$uncharge.amount}" />
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">当前汇率：</th>
+							<th class="table-horizen table-horizen-1 font-272727">
+								{$uncharge.forex}
+								<!--<input class="readonly-input " value="{$uncharge.forex}" readonly />-->
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">身份证号：</th>
+							<th>
+								<input class="readonly-input just-int-number" name="id_card"/>
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">出金方式：</th>
+							<th>
+								<!--<input class="readonly-input" value="{$charge.forex}" readonly />-->
+								<!--选择微信或支付宝？？？看看中信那个能不能打到银行卡-->
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">收款人姓名：</th>
+							<th class="table-horizen table-horizen-1 font-272727">
+								{$uncharge.nickname}
+								<!--<input class="readonly-input" value="{$uncharge.nickname}" readonly/>-->
+							</th>
+						</tr>
+						<tr>
+							<th class="table-horizen table-horizen-0 font-272727">备注：</th>
+							<th>
+								<input class="readonly-input" />
+							</th>
+						</tr>
+					</table>
+					<div class="charge-caution t_c">
+						本人了解并接受：由于提交了错误的出金信息而导致提款被拒绝，请联系客服！
+					</div>
+
+					<button type="submit" class="button-submit">{$seo.name}</button>
+				</form>
+			</div>
+
+			<!--<div id="popularize-link" class="popularize-link wp_80 user-center-item hp_20">
+
+
+			</div>
+
+			<div id="announce-news" class="announce-news wp_80 user-center-item hp_30">
+
+
+			</div>-->
+		
+		</div>
+	</div>
+</block>
