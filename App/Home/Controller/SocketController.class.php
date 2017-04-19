@@ -32,10 +32,13 @@ class SocketController extends Controller
             $model->startTrans();
             $array['f_time'] = date('Y-m-d H:i:s', time());
             $add = $model -> table('fx_temp_record') -> data($array) ->add();
+            
             if($add){
                 $model->commit();
-                if($tempOperate['temp']){
-                    S('temp_record', $array, 60);
+                if($tempOperate['temp']){ //清除缓存
+                    S('temp_record', null);
+                }else{
+                    S('temp_record', $array, 5);
                 }
                 
             }
