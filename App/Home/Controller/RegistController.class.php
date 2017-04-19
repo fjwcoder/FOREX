@@ -44,19 +44,21 @@ class RegistController extends HomeCommonController
                 die('密码不一致');
             }
             // 4. 验证推荐人ID
-            // echo I('content-person', '', 'htmlspecialchars,trim'); die;
-            $person_check = M('user') -> where(array('userid'=>I('content-person', '', 'htmlspecialchars,trim'))) -> find();
-            if(!empty($person_check)){
-                $regist['introduction'] = I('content-person', '', 'htmlspecialchars,trim');
-            }else{
-                //检查是否是第一个用户
-                $first = M('user') -> select();
-                if(empty($first)){
+            if(I('content-person', '', 'htmlspecialchars,trim') != ''){
+                $person_check = M('user') -> where(array('userid'=>I('content-person', '', 'htmlspecialchars,trim'))) -> find();
+                if(!empty($person_check)){
                     $regist['introduction'] = I('content-person', '', 'htmlspecialchars,trim');
                 }else{
-                    die('推荐人不存在');
+                    //检查是否是第一个用户
+                    $first = M('user') -> select();
+                    if(empty($first)){
+                        $regist['introduction'] = I('content-person', '', 'htmlspecialchars,trim');
+                    }else{
+                        die('推荐人不存在');
+                    }
                 }
             }
+                
             // 验证姓名
             $regist['nickname'] = I('content-nickname', '', 'htmlspecialchars,trim');
             if(empty($regist['nickname'])){
@@ -158,11 +160,13 @@ class RegistController extends HomeCommonController
     public function check_person(){
         header('Content-type: application/json');
         $person = I('name', '', 'htmlspecialchars,trim');
+
         $check_person = M('user') -> where(array('userid'=>$name)) -> find();
-        if($check_person){//查到返回错误
-            echo json_encode(array('status'=>false)); die;
-        }else{
+        //echo json_encode(array('status'=>$check_person)); die;
+        if($check_person){
             echo json_encode(array('status'=>true)); die;
+        }else{
+            echo json_encode(array('status'=>false)); die;
         }
     }
 

@@ -32,21 +32,24 @@ $(document).ready(function(){
 	
 	//验证推荐人是否存在
 	$('#content-person').blur(function(event){
-		$.ajax({
-			type: "POST",
-			data: {name: $(this).val()},
-			url: "/Home/Regist/check_person",
-			success: function(data){
-				if(data['status']){
+		if(($(this).val() != '') && ($(this).val() != null) && (typeof($(this).val()) != 'undefined')){
+			$.ajax({
+				type: "POST",
+				data: {name: $('#content-person').val()},
+				url: "/Home/Regist/check_person",
+				success: function(data){
+					if(data['status']){
+						$('#label-person').css({"display": "none"});
+					}else{
+						$('#label-person').css({"display": "inline-block"});
+					}	
+				},
+				error: function(e){
 					$('#label-person').css({"display": "none"});
-				}else{
-					$('#label-person').css({"display": "inline-block"});
-				}	
-			},
-			error: function(e){
-				$('#label-person').css({"display": "none"});
-			}
-		});
+				}
+			});
+		}
+		
 	});
 	
 	//验证手机号格式是否正确

@@ -26,14 +26,18 @@ class SocketController extends Controller
         }
 
         $this->socket($array);
-        if($this->tempOperate()){
+        $tempOperate = $this->tempOperate();
+        if($tempOperate['status']){
             $model = M();
             $model->startTrans();
             $array['f_time'] = date('Y-m-d H:i:s', time());
             $add = $model -> table('fx_temp_record') -> data($array) ->add();
             if($add){
                 $model->commit();
-                S('temp_record', $array, 60);
+                if($tempOperate['temp']){
+                    S('temp_record', $array, 60);
+                }
+                
             }
             unset($forex_data, $array, $model, $add);
         }
@@ -68,11 +72,11 @@ class SocketController extends Controller
                 $sql = 'truncate table fx_temp_record';
                 if($model -> execute($sql)){ //该语句注意query和execute的区别
                     unset($count, $array, $last, $fbuypri, $add, $sql);
-                    return true;
+                    return array('status'=>true, 'temp'=>true);
                 }
             }
         }else{
-            return true;
+            return array('status'=>true, 'temp'=>false);
         }
     }
 

@@ -28,17 +28,4 @@ $(document).ready(function(){
 		freeMode: true
 	});
 	
-	/* $(".category-select-item").click(function(){
-		$(".category-select-item").css({"height":"40px", "lineHeight":"40px", "textAlign":"left", "backgroundColor":"#acb9c9", "fontSize":"16px"});
-		$(this).css({"height":"50px", "lineHeight":"50px", "textAlign":"center", "backgroundColor":"#61c7f2", "fontSize":"25px"});
-		
-		
-	});
-	
-	$(".contral-button").click(function(){
-		alert("暂无数据");
-	}); */
-	
-	
-	
 })
